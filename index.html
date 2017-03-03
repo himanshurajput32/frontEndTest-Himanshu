@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Test</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+  <link rel="stylesheet" href="css/customCSS.css" type="text/css">
+    <script  src="https://code.jquery.com/jquery-3.1.1.min.js"  crossorigin="anonymous"></script>
+
+  </script>
+</head>
+<body>
+  <div class="container-fluid" id="back">
+  <div class="row" id="emptyRow">
+  </div>
+
+
+    <div class="row" id="row1">
+      <div class="col-md-1">
+      </div>
+      <div class="col-md-3">
+        <div id="side">
+          <div id="logoSpace">
+            <h2 id="logoFName"></h2>
+            <h2 id="logoLName"></h2>
+          </div>
+          <br>
+         <ul class="navbar nav-default">
+           <li><span class="glyphicon glyphicon-user" aria-hidden="true"></span><a href="" class="links">About Me</a><li><br>
+             <li><span class="glyphicon glyphicon-headphones" aria-hidden="true"><a href="" class="links">Skills</a><li><br>
+               <li><span class="glyphicon glyphicon-lock" aria-hidden="true"><a href="" class="links">Experience</a><li><br>
+                 <li><span class="glyphicon glyphicon-book" aria-hidden="true"><a href="" class="links">Education</a><li><br>
+                   <li><span class="glyphicon glyphicon-comment" aria-hidden="true"><a href="" class="links">PortFolio</a><li><br>
+                     <li><span class="glyphicon glyphicon-phone" aria-hidden="true"><a href="" class="links">Contact</a><li>
+         </ul>
+        </div>
+      </div>
+      <div class="col-md-7" id="side1">
+        <div id="banner">
+
+<img src=""  id="profilePic" width="150px" />
+
+      <h1 id="bannerName"></h1>
+    </div>
+      <div id="details">
+        <br>
+        <br>
+        <p id="p1">Who am I ?</p>
+        <h1 id="heading1">Personal Details</h1>
+        <div id="description">
+          Design is a rather broad and vague term. When someone says "I'm a designer," it is not immediately
+           clear what they actually do day to day. There are a number of different responsibilities encompassed
+           by the umbrella term designer. Design-related roles exist in a range of areas from industrial design
+            (cars, furniture) to print (magazines, other publications) to tech websites. With the
+            relatively recent influx of tech companies focused on creating interfaces for screens, many new design
+            roles have emerged. Job titles like UX or UI designer are confusing to the uninitiated and unfamiliar even
+             to designers who come from other industries.
+        </div>
+        <div id="jsonData">
+      <h2 id="name"></h2>
+      <h2 id="email"></h2>
+      <h2 id="profileUrl"></h2>
+
+    </div>
+
+</div>
+      <div class="col-md-1">
+      </div>
+    </div>
+  </div>
+  <script>
+
+    $(document).ajaxStart(function(){
+      $("#profilePic").attr("src","images/progress.gif");
+    }).ajaxStop(function(){
+      console.log("Ajax Stopped.")
+    }).ajaxSuccess(function(){
+      console.log("Ajax Success")
+    }).ajaxComplete(function(){
+      console.log("Ajax Completed")
+    })
+
+    $('document').ready(function(){
+          $.ajax({
+        url:"https://public-api.wordpress.com/rest/v1/sites/25262138/posts",
+        success: function(data){
+          console.log(data);
+          $("#name").text("Name: "+data.posts[0].author.name);
+          $("#email").text("Email : "+data.posts[0].author.email);
+          $("#profilePic").attr("src",data.posts[0].author.avatar_URL);
+          $("#bannerName").text("Hi I am "+data.posts[0].author.name)
+          $("#logoName").text(data.posts[0].author.name)
+          $("#profileUrl").text("Check at: "+data.posts[0].author.profile_URL)
+          $("#logoFName").text(data.posts[0].author.first_name)
+          $("#logoLName").text(data.posts[0].author.last_name)
+        },
+        error: function(){
+
+
+        }
+      })
+    })
+  </script>
+</body>
+</html>

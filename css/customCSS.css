@@ -1,0 +1,74 @@
+#back{
+  background-color: #C1CCD6
+}
+#emptyRow{
+  height:30px
+}
+#row1{
+  height: 800px
+}
+#side{
+  background-color: black;
+  height: 600px;
+  text-align: center;
+
+}
+#logoSpace{
+  background-color: #00FF9B;
+  height:180px;
+  width:180px;
+  margin-left:55px;
+  text-align: center;
+}
+#logoFName,#logoLName{
+  color:white
+}
+#side1{
+  background-color: white
+}
+#banner{
+  background-color: #A3E4D7;
+  height: 300px;
+  text-align: center;
+}
+#pic{
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  background-color: black;
+  margin-left: 250px
+}
+#bannerName{
+  color: #F39C12
+}
+#heading1{
+  font-family:Archivo Narrow;
+}
+#p1{
+  color: #BFC9CA;
+  font-family:fantasy;
+  font-size: 25px
+}
+.links{
+  text-decoration: none;
+  color: white;
+  font-family: cursive;
+  font-size: 16px
+}
+ul{
+  list-style-type: none;
+}
+
+
+#description{
+  text-align: center;
+  color: #5D6D7E;
+  font-size: 16px;
+  border-bottom: 2px;
+  border-color: #5D6D7E;
+  font-family:fantasy;
+}
+#jsonData{
+  color: #95A5A6;
+  text-align: center;
+}
